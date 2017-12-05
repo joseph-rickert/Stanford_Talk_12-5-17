@@ -4,6 +4,9 @@ author: Joseph B. Rickert
 date: 12/5/17
 autosize: true
 
+All materials are available at:
+https://github.com/joseph-rickert/Stanford_Talk_12-5-17
+
 Inspiration
 ========================================================
 

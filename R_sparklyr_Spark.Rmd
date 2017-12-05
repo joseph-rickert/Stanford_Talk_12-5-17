@@ -1,7 +1,7 @@
 ---
 title: "Accessing Spark from R"
 author: Joseph Rickert
-date: 10/30/17
+date: 12/05/17
 output: html_notebook
 ---
 
@@ -55,7 +55,7 @@ sc <- spark_connect(master = "local")
 We begin by copying the some data sets into `Spark`. We will use the `nycflights13` data which we have used before, the `Lahman` dataset containing baseball stats, and good old `iris`.
 
 ```{r, eval=FALSE}
-install.packages(c("nycflights13", "Lahman"))
+#install.packages(c("nycflights13", "Lahman"))
 ```
 
 ```{r, message=FALSE}
@@ -82,7 +82,7 @@ In this first example, we use `dplyr::filter()` to fetch flights with two minute
 flights_tbl %>% filter(dep_delay == 2)
 ```
 
-Here, we compute mean distance and mean arrival delay for flights with more than observations and distances less than 2,000 miles.
+Here, we compute mean distance and mean arrival delay for flights with more than 20 observations and distances less than 2,000 miles.
 
 ```{r}
 delay <- flights_tbl %>% 

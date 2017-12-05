@@ -4,7 +4,7 @@ author: Joseph Rickert
 output: html_notebook
 ---
 
-This notebook which illustrates how a multiple linear regression (Y ~ XW + b) might be fit using TensorFlow was adapted from and example provided by [aymericdamien](https://github.com/aymericdamien/TensorFlow-Examples/blob/master/examples/2_BasicModels/linear_regression.py). The original version of this R example is [here](https://tensorflow.rstudio.com/tensorflow/articles/examples/linear_regression_multiple.html).
+This notebook, which illustrates how a multiple linear regression (Y ~ XW + b) might be fit using TensorFlow was adapted from and example provided by [aymericdamien](https://github.com/aymericdamien/TensorFlow-Examples/blob/master/examples/2_BasicModels/linear_regression.py). The original version of this R example is [here](https://tensorflow.rstudio.com/tensorflow/articles/examples/linear_regression_multiple.html).
 
 ```{r}
 library(tensorflow)
@@ -44,10 +44,10 @@ Define the model (how estimates of 'Y' are produced)
 Y_hat <- tf$add(tf$matmul(X, W), b)
 ```  
 
-Define the cost function that will minimize the mean-squared error.
+Define the loss function that will minimize the mean-squared error.
 
 ```{r}
-cost <- tf$reduce_mean(tf$square(Y_hat - Y))
+loss <- tf$reduce_mean(tf$square(Y_hat - Y))
 ```  
 
 
@@ -55,7 +55,7 @@ Define the mechanism used to optimize the loss function. Although normally we'd 
 
 ```{r}
 generator <- tf$train$GradientDescentOptimizer(learning_rate = 0.01)
-optimizer <- generator$minimize(cost)
+optimizer <- generator$minimize(loss)
 ```   
 
 Initialize a TensorFlow session for our regression.
@@ -77,7 +77,7 @@ y <- matrix(2 * x[, 1] + 1 + (rnorm(n, sd = 0.25)))
 ```   
 
 
-Next, we repeatedly run optimizer until the cost is no longer changing.
+Next, we repeatedly run optimizer until the loss is no longer changing.
 
 ```{r}
 feed_dict <- dict(X = x, Y = y)

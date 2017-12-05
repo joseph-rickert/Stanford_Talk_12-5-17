@@ -1,8 +1,6 @@
 ---
-title: "TF_Keras"
-output:
-  html_document:
-    df_print: paged
+title: "R Notebook"
+output: html_notebook
 ---
 
 ## Keras
@@ -152,12 +150,6 @@ Finally, we demonstrate hos the `predict_classes()` function can be used to gene
 ```{r}
 model %>% predict_classes(x_test)
 ```
-
-For more information see the [blog post](https://blog.rstudio.com/2017/09/05/keras-for-r/) on which document is based by J.J. Allaire, the primary author of the `keras` package; [The Guide to the Sequential Model](https://keras.rstudio.com/articles/sequential_model.html), and the [vignettes](https://CRAN.R-project.org/package=keras) for `keras`.
-
-
-
-
 
 
 
