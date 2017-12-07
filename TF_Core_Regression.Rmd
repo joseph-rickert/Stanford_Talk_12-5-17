@@ -82,12 +82,12 @@ Next, we repeatedly run optimizer until the loss is no longer changing.
 ```{r}
 feed_dict <- dict(X = x, Y = y)
 epsilon <- .Machine$double.eps
-last_cost <- Inf
+last_loss <- Inf
 while (TRUE) {
   session$run(optimizer, feed_dict = feed_dict)
-  current_cost <- session$run(cost, feed_dict = feed_dict)
-  if (last_cost - current_cost < epsilon) break
-  last_cost <- current_cost
+  current_loss <- session$run(loss, feed_dict = feed_dict)
+  if (last_loss - current_loss < epsilon) break
+  last_loss <- current_loss
 }
 ```   
 
@@ -101,4 +101,3 @@ r_coef  <- r_model$coefficients
 
 print(rbind(tf_coef, r_coef))
 ```  
-
